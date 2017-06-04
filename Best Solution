@@ -1,0 +1,16 @@
+int maxProfit(vector<int>& prices)
+    {
+        int n = prices.size();
+        int maxProfit = 0;
+        int smallest = 0;
+        
+        for(int i = 1; i < n; i++)
+        {
+            if(prices[i]-prices[smallest] > maxProfit)
+            maxProfit = prices[i]-prices[smallest];
+            
+            else if(prices[i] < prices[smallest])
+            smallest = i;
+        }
+        return maxProfit;
+    }
